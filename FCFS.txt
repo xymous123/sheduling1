@@ -1,0 +1,61 @@
+burst = []
+
+arrival = []
+
+process = []
+
+print ("Enter the number of processes")
+
+n = int(input())
+
+for i in range (0,n):
+    print
+    "enter name of the process"
+
+    a = str(input())
+    process.append(a)
+    print
+    "enter arrival time of the process"
+
+    arrival[i] = int(input())
+
+    print
+    "enter burst time of the process"
+
+    burst[i] = int(input())
+
+for i in range(0, n - 1):
+
+    for j in range(i + 1, n):
+
+        if (arrival[i] < arrival[j]):
+            arrival[i],arrival [j];
+
+        process[i],process[j];
+
+        burst[i],burst[j];
+
+final_time = []
+
+count = 0
+
+start_time = []
+start_time[0] = arrival[0]
+for i in range(0, n):
+    if (count <= arrival[i]):
+        count = arrival[i]
+    start_time[i] = count
+
+    if (i > 0):
+        final_time[i - 1] = count
+
+    for j in range(0, burst[i]):
+        count = count + 1
+
+final_time[n] = count
+for i in range(0, n):
+    print
+    "Process          Waiting time       Final time     Turnaround time"
+
+    print
+    process[i], "\t\t", start_time[i] - arrival[i], "\t\t", final_time[i], "\t\t", final_time[i] - arrival[i], "\n"
